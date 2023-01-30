@@ -14,7 +14,7 @@ elif [ -f $1 ]; then
         case $choice in
                 y)
                         echo Creating backup...
-                        tar -cf/tmp/${1##*/}.tar $1
+                        tar -cf /tmp/${1##*/}.tar $1
                         ;;
                 n)
                         echo No selected. Not creating a backup.
@@ -23,7 +23,7 @@ elif [ -f $1 ]; then
                         echo invalid option
                         exit 3
                         ;;
-         esac
+        esac
 else
         echo 
 fi
