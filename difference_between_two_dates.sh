@@ -22,6 +22,21 @@ do
 done
 if_leap=$(echo $(( year % 4 )))
 if [[ $if_leap -eq 0 && $month -gt 2 ]]
+then
+        month_days_passed=$(( month_days_passed + 1 ))
+fi
+
+#COUNT DAYS FINAL
+final_days=$(( ($year_days_passed + $month_days_passed) + ($day - 1) ))
+echo $final_days
+}
+#__________________function end__________________
+
+
+#__________________function call__________________
+echo "Enter the date (eg: 12/25/1980):"
+read date
+res1=$(count $data)
 
 
 
