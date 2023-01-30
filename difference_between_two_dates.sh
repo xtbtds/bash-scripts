@@ -5,12 +5,14 @@ count () {
 day_t=${date%/*}
 day=${day_t#*/}
 
+#COUNT DAYS FROM YEARS IN DATE
 year=${date##*/}
 years_full=$(( $year - 1 ))
 leaps=$(( $(( $years_full / 4 )) + 1 ))
 year_days_passed_w=$(( 365*$years_full ))
 year_days_passed=$(( $year_days_passed_w + $leaps ))
 
+#COUNT DAYS FROM MONTHS IN DATE
 months={31 28 31 30 31 30 31 31 30 31 30 31}
 month=${date%%/*}
 month_days_passed=0
@@ -35,8 +37,14 @@ echo $final_days
 
 #__________________function call__________________
 echo "Enter the date (eg: 12/25/1980):"
-read date
-res1=$(count $data)
+read date1
+res1=$(count $date1)
+
+echo "Enter the date (eg: 12/25/1980):"
+read date2
+res2=$(count $date2)
+
+echo $date2-$date1
 
 
 
