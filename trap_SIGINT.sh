@@ -1,13 +1,13 @@
 #!/bin/bash
-int_count=0
+catch_count=0
 
-function no_int()
+function catcher()
 {
-        let int_count++
+        let catch_count++
         echo
-        if [[ $int_count -eq 1 ]]; then
+        if [[ $catch_count -eq 1 ]]; then
                 echo "Press CTRL+C second time to exit"
-        elif [[ $int_count -eq 2 ]]; then
+        elif [[ $catch_count -eq 2 ]]; then
                 echo "Press CTRL+C third time to exit"
         else 
                 echo "Exited"
@@ -15,7 +15,7 @@ function no_int()
         fi
 }
 
-function count()
+function counter()
 {
         COUNT=100
         while true; do
@@ -23,6 +23,7 @@ function count()
                 sleep 1
                 echo "$COUNT seconds left"
         done
-trap no_int INT
+        
+trap catcher INT
 
-count()
+counter()
